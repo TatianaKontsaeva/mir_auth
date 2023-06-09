@@ -23,7 +23,7 @@ module.exports = configure(function (ctx) {
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-webpack/boot-files
     boot: [
-      
+      'axios'
       
     ],
 
@@ -75,12 +75,23 @@ module.exports = configure(function (ctx) {
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
+    // devServer: {
+    //   server: {
+    //     type: 'http'
+    //   },
+    //   port: 8080,
+    //   open: true // opens browser window automatically
+    // },
     devServer: {
-      server: {
-        type: 'http'
-      },
-      port: 8080,
-      open: true // opens browser window automatically
+      // https: true,
+      open: true,
+      proxy: {
+        // proxy all requests starting with /api to jsonplaceholder
+        "/api": {
+          target: "https://content.mir.1t.ru",
+          changeOrigin: true,
+        },
+      }, // opens browser window automatically
     },
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
