@@ -75,7 +75,7 @@
   
   const form = ref({
     email: '',
-   user_name: '',
+    user_name: '',
     phone: '',
     password: '',
     confirmPassword: ''
@@ -83,7 +83,7 @@
   
   const Submit = () => {
     registration(form.value)
-    router.push({ name: "login" })
+    router.push("/login")
   }
   
   </script>

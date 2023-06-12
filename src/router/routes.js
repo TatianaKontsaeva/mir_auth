@@ -20,6 +20,7 @@ const routes = [
         name: 'profile',
         component: () => import('components/UserProfile.vue'),
       },
+  
     ]
   },
 

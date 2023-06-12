@@ -1,19 +1,7 @@
-import axios from "axios";
+import { requestAuth } from './authorization'
 
+const authentication = async (data) =>
+  await requestAuth({ url: `login`, data, method: 'post' })
 
+export { authentication }
 
-export const authentication = async ({ email, password }) => {
-  try {
-    const response = await axios.post(
-      `/api/auth/signin`,
-
-      {
-        email: email,
-        password: password,
-      }
-    );
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
-};

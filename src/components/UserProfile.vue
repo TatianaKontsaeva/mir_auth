@@ -4,9 +4,12 @@
     </q-page>
   </template>
 
-<script setup>
-  import { useRouter } from "vue-router";
+<script>
 
-   const router = useRouter()
+ export default {
+    name: 'UserProfile',
+
+    
+ }
 </script>
 

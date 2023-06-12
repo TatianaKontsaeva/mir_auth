@@ -2,10 +2,10 @@
     <q-page class="q-pa-md flex flex-center">
       <div>
         <h5>Вход</h5>
-        <q-form @submit="Submit()">
+        <q-form @submit="Submit()" @reset="EnterReset">
           <q-input
             rounded
-            v-model="form.email"
+            v-model="email"
             label="Введите вашу почту"
             type="email"
             lazy-rules
@@ -14,7 +14,7 @@
           </q-input>
           <q-input
             rounded
-            v-model="form.password"
+            v-model="password"
             label="Введите ваш пароль"
             type="password"
             lazy-rules
@@ -45,17 +45,48 @@
   import { ref } from "vue"
   import useValidators from "src/use/formValidation"
   import { authentication } from "src/sdk/authentication";
+
+  import { useRouter } from "vue-router";
+
   
   const { required } = useValidators();
-  
-  const form = ref({
-    email: '',
-    password: ''
-  })
+  const error = ref("");
+  const router = useRouter();
+
+  const email = ref("");
+    const password = ref("");
+
+  const EnterReset = () => {
+      email.value = "";
+      password.value = "";
+    };
 
   const Submit = () => {
-    authentication(form.value)
+    console.log("email", email.value);
+    console.log("password", password.value);
 
+    let resAuth = null;
+
+    authentication({
+        email: email.value,
+        password: password.value,
+      })
+    .then ((res) => {
+      resAuth = res;
+      console.log(resAuth);
+
+      localStorage.setItem("token", resAuth.accessToken);
+
+      router.push("/");
+    })
+    .catch((err) => {
+          console.log("Ошибка: ", err);
+          error.value = "Неверный логин или пароль";
+    });
+
+
+    
+  
   }
 
   </script>
