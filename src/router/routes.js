@@ -2,7 +2,7 @@
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/AuthorizationLayout.vue'),
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
       {
@@ -15,13 +15,19 @@ const routes = [
         name: 'login',
         component: () => import('components/LoginPage.vue'),
       },
+    ]
+  },
+  {
+    path: '/app',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/ModulesPage.vue') },
       {
         path: '/Profile',
         name: 'profile',
         component: () => import('components/UserProfile.vue'),
       },
-  
-    ]
+    ],
   },
 
   // Always leave this as last one,

@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header elevated style="display: flex;">
       <q-toolbar>
         <q-btn
           flat
@@ -10,15 +10,12 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        
       </q-toolbar>
+        <q-avatar>
+          <img src="https://cdn.quasar.dev/img/boy-avatar.png" size="xl">
+        </q-avatar>
     </q-header>
-
+    
     <q-drawer
       v-model="leftDrawerOpen"
   
