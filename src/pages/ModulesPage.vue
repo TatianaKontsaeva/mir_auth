@@ -5,32 +5,38 @@
         label="Курсы"
         color="grey"
         class="q-ml-sm btn_list"
+        to="/Courses"
         />
       <q-btn
         label="Редактор"
         color="grey"
         class="q-ml-sm btn_list"
+        to="/Editor"
         />
       <q-btn
         label="Играть"
         color="grey"
         class="q-ml-sm btn_list"
+        to="/Play"
         />
       <q-btn
         label="Выход"
         color="grey"
         class="q-ml-sm btn_list"
-        to="/Logout"
+        @click="handleClick"
         />
     </q-page>
   </template>
-<script>
-  import { defineComponent } from 'vue'
+<script setup>
+ import { useRouter } from "vue-router";
   
-  export default defineComponent({
-    name: 'ModulesPage',
-  
-  })
+ const router = useRouter();
+ const handleClick = () => {
+    localStorage.removeItem("token");
+     console.log("token deleted");
+      router.push("/");
+    }
+
   </script>
   <style>
     .btn_list {

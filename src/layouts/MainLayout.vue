@@ -11,9 +11,11 @@
           @click="toggleLeftDrawer"
         />
       </q-toolbar>
+      <q-btn>
         <q-avatar>
           <img src="https://cdn.quasar.dev/img/boy-avatar.png" size="xl">
         </q-avatar>
+      </q-btn>
     </q-header>
     
     <q-drawer

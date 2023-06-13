@@ -27,6 +27,21 @@ const routes = [
         name: 'profile',
         component: () => import('components/UserProfile.vue'),
       },
+      {
+        path: '/Courses',
+        name: 'courses',
+        component: () => import('components/Courses.vue'),
+      },
+      {
+        path: '/Editor',
+        name: 'editor',
+        component: () => import('components/Editor.vue'),
+      },
+      {
+        path: '/Play',
+        name: 'play',
+        component: () => import('components/Play.vue'),
+      },
     ],
   },
 
