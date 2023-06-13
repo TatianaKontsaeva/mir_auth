@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated style="display: flex;">
-      <q-toolbar>
+    <q-header elevated style="display: flex; justify-content: space-around;">
+      <!-- <q-toolbar>
         <q-btn
           flat
           dense
@@ -10,12 +10,46 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-      </q-toolbar>
-      <q-btn>
-        <q-avatar>
-          <img src="https://cdn.quasar.dev/img/boy-avatar.png" size="xl">
-        </q-avatar>
-      </q-btn>
+      </q-toolbar> -->
+      <q-btn
+      label="1T"
+      to="#"
+      
+      />
+      <q-btn
+      label="О Мир 1Т"
+      to="/"
+      />
+      <q-btn
+      label="Курсы"
+      to="/Courses"
+      />
+      <q-btn
+      label="Редактор"
+      to="/Editor"
+      />
+      <q-btn
+      label="Игры"
+      to="/Play"
+      />
+
+      <q-btn
+      label="Регистрация"
+      to="/Signup"
+      />
+
+      <q-btn
+      label="Вход"
+      to="/enter"
+      />
+        
+      <router-link to="/Profile">
+        <q-btn v-if="user">
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/img/boy-avatar.png" size="xl">
+          </q-avatar>
+        </q-btn>
+      </router-link>
     </q-header>
     
     <q-drawer

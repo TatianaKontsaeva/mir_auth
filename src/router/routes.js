@@ -2,6 +2,14 @@
 const routes = [
   {
     path: '/',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/World1t.vue') },
+      
+    ],
+  },
+  {
+    path: '/enter',
     component: () => import('layouts/AuthorizationLayout.vue'),
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },

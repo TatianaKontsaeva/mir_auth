@@ -23,7 +23,7 @@
         label="Выход"
         color="grey"
         class="q-ml-sm btn_list"
-        @click="handleClick"
+        @click="logoutClick"
         />
     </q-page>
   </template>
@@ -31,7 +31,7 @@
  import { useRouter } from "vue-router";
   
  const router = useRouter();
- const handleClick = () => {
+ const logoutClick = () => {
     localStorage.removeItem("token");
      console.log("token deleted");
       router.push("/");
@@ -43,3 +43,5 @@
     width: 400px;
   }
   </style>
+
+
