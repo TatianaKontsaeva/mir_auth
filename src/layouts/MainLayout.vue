@@ -74,11 +74,7 @@ import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'MainLayout',
-  data() {
-    return {
-      user:null
-    }
-  },
+ 
 
   computed: {
     userAuth() {

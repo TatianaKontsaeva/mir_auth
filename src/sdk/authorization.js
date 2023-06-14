@@ -28,7 +28,7 @@ export const request = async ({ url, method, data = {} }) => {
 
 export const requestAuth = async ({ method, data = {} }) => {
   const response = await axios[method](`/api/auth/signin`, data)
-
+ 
   return response.data
 }
 
