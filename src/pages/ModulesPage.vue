@@ -1,6 +1,7 @@
 <template>
     <q-page class="flex flex-center column q-gutter-md">
       <h3>Мир 1Т Вход</h3>
+
       <q-btn
         label="Курсы"
         color="grey"
@@ -20,22 +21,23 @@
         to="/Play"
         />
       <q-btn
-        label="Выход"
+      label="Вход"
+      color="grey"
+      class="q-ml-sm btn_list"
+      to="/Login"
+      />
+      <q-btn
+        label="Регистрация"
         color="grey"
         class="q-ml-sm btn_list"
-        @click="logoutClick"
+        to="/Signup"
         />
     </q-page>
   </template>
 <script setup>
- import { useRouter } from "vue-router";
-  
- const router = useRouter();
- const logoutClick = () => {
-    localStorage.removeItem("token");
-     console.log("token deleted");
-      router.push("/");
-    }
+
+
+
 
   </script>
   <style>

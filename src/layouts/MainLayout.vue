@@ -33,18 +33,19 @@
       to="/Play"
       />
 
-      <q-btn
+      <q-btn v-if="!userAuth"
       label="Регистрация"
       to="/Signup"
       />
 
-      <q-btn
+      <q-btn  v-if="!userAuth"
       label="Вход"
-      to="/enter"
+      to="/modules"
+     
       />
         
       <router-link to="/Profile">
-        <q-btn v-if="user">
+        <q-btn v-if="userAuth">
           <q-avatar>
             <img src="https://cdn.quasar.dev/img/boy-avatar.png" size="xl">
           </q-avatar>
@@ -54,10 +55,8 @@
     
     <q-drawer
       v-model="leftDrawerOpen"
-  
       bordered
     >
-     
     </q-drawer>
 
     <q-page-container>
@@ -73,16 +72,20 @@
 <script>
 import { defineComponent, ref } from 'vue'
 
-
-
-
 export default defineComponent({
   name: 'MainLayout',
-
-  components: {
-
+  data() {
+    return {
+      user:null
+    }
   },
 
+  computed: {
+    userAuth() {
+      const token = localStorage.getItem('token')
+      return Boolean(token)
+    }
+},
   setup () {
     const leftDrawerOpen = ref(false)
 
@@ -95,3 +98,4 @@ export default defineComponent({
   }
 })
 </script>
+

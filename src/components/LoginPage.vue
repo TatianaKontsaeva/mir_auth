@@ -76,8 +76,9 @@
       console.log(resAuth);
 
       localStorage.setItem("token", resAuth.accessToken);
-
-      router.push("/app");
+     
+      router.push("/");
+      
     })
     .catch((err) => {
           console.log("Ошибка: ", err);
