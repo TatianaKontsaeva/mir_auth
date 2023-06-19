@@ -1,5 +1,5 @@
 import axios from "axios";
-
+// import axios from "privateAxios"
 const API_URL = "https://content.mir.1t.ru/";
 
 export const request = async ({ url, method, data = {} }) => {

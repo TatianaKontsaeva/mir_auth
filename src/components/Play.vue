@@ -1,10 +1,6 @@
 <template>
   <q-page class="flex flex-center q-pa-lg">
-    <div v-if="!userAuth">
-      <p>Вы не вошли в систему</p>
-      <q-btn label="Вход" to="/login" />
-    </div>
-    <div v-if="userAuth">
+    <div>
       <h3>Играть в Супер Шутер</h3>
       <p>
         Игра жанра шутер, где игроки сражаются в режиме “Все против всех”,
@@ -46,12 +42,5 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Play",
-
-  computed: {
-    userAuth() {
-      const token = localStorage.getItem("token");
-      return Boolean(token);
-    },
-  },
 });
 </script>

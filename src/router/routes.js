@@ -1,28 +1,13 @@
-
-import store from "../store/index";
-
-function isAuth() {
-  const token = localStorage.getItem("token");
-  return Boolean(token);
-}
-
 const routes = [
   {
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
-    beforeEach: (to, from, next) => {
-      console.log('from to', from, to);
-      // if ((to.name === "editor" || to.name === "courses") && !isAuth()) {
-
-      //   next("/login");
-      // }
-      next()
-     
-    },
     children: [
-      { path: "",
-        name: 'world1t',
-       component: () => import("pages/World1t.vue") },
+      {
+        path: "",
+        name: "world1t",
+        component: () => import("pages/World1t.vue"),
+      },
       {
         path: "/Courses",
         name: "courses",
@@ -69,17 +54,5 @@ const routes = [
     component: () => import("pages/ErrorNotFound.vue"),
   },
 ];
-// router.beforeEach(async (to, from) => {
-//   if (
-//     // make sure the user is authenticated
-//     !store.state.isAuth &&
-//     // ❗️ Avoid an infinite redirect
-//     to.name !== 'Login'
-//   ) {
-//     // redirect the user to the login page
-//     return { name: 'Login' }
-//   }
-// })
-
 
 export default routes;

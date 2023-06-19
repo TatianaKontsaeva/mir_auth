@@ -34,13 +34,9 @@
 
     <q-page-container>
       <router-view v-slot="{ Component }">
-        <keep-alive v-if="isAuth || isHomePage" :key="$route.fullPath">
+        <keep-alive :key="$route.fullPath">
           <component :is="Component" />
         </keep-alive>
-        <div v-else>
-            <p>Вы не вошли в систему</p>
-            <q-btn label="Вход" to="/login" />
-          </div>
       </router-view>
     </q-page-container>
   </q-layout>
@@ -57,9 +53,9 @@ export default defineComponent({
       const token = localStorage.getItem("token");
       return Boolean(token);
     },
-    isHomePage() {
-      return this.$route.name === "world1t" 
-    }
+    // isHomePage() {
+    //   return this.$route.name === "world1t"
+    // }
   },
   setup() {
     const leftDrawerOpen = ref(false);
