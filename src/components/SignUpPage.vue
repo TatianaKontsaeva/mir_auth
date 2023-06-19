@@ -67,7 +67,7 @@
 <script setup>
 import { ref } from "vue";
 import useValidators from "src/use/formValidation";
-import { registration } from "src/sdk/registration";
+import { registration } from "src/services/registration";
 import { useRouter } from "vue-router";
 
 const { required } = useValidators();

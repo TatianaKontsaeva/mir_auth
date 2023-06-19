@@ -48,7 +48,7 @@
 <script setup>
 import { ref } from "vue";
 import useValidators from "src/use/formValidation";
-import { authentication } from "src/sdk/authentication";
+import { authentication } from "src/services/authentication";
 
 import { useRouter } from "vue-router";
 

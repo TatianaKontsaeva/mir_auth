@@ -1,11 +1,20 @@
 <template>
-  <q-page class="q-pa-md flex-center">
-    <q-btn
-      label="Выход"
-      color="grey"
-      class="q-ml-sm btn_list"
-      @click="logoutClick"
-    />
+  <q-page class="q-pa-md flex-center justify-between">
+    <div class="q-pa-md flex justify-between items-center">
+    <div>
+      <q-btn>
+        <router-link to="/">На Главную</router-link>
+      </q-btn>
+    </div>
+    <div class="q-pa-md">
+      <q-btn
+        label="Выход"
+        color="grey"
+        class="q-ml-sm btn_list"
+        @click="logoutClick"
+      />
+    </div>
+  </div>
     <p>welcome</p>
   </q-page>
 </template>
@@ -21,16 +30,12 @@ export default {
       localStorage.removeItem("token");
       console.log("token deleted");
       router.push("/");
-    }
+    };
 
     return {
       logoutClick,
-
     };
   },
-
-
-
 
   async created() {
     const token = localStorage.getItem("token");

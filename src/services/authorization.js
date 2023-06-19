@@ -29,17 +29,7 @@ export const request = async ({ url, method, data = {} }) => {
 export const requestAuth = async ({ method, data = {} }) => {
   const response = await axios[method](`/api/auth/signin`, data);
   return response.data
-  //если в респонс есть сообщ что токен expired то вызвать функцию котор обновл токен
-  // if (response.status === 401) {
-  //   const response = await axios[method](`/api/auth/refresh-token`, data);
-  //   return response.data;
-  // } else if (response.status === 201) {
-  //   const response = await axios[method](`/api/auth/signin`, data);
-  //   return response.data;
-  // }
+
 };
 
-// export const getProfile = async ({ method, data = {} }) => {
-//   const response = await axios[method](`/api/profile`, data)
-//   return response.data
-// }
+
