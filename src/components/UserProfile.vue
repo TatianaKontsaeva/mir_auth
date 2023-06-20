@@ -53,5 +53,27 @@ export default {
       console.log("error");
     }
   },
+
+//  async refreshToken(token) {
+//     return axios('api/auth/refresh-token', {
+//         method: 'POST',
+//         credentials: 'include',
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({
+//             token,
+//         }),
+//     })
+//         .then((res) => {
+//             if (res.status === 200) {
+//                 const tokenData = res.json();
+//                 saveToken(JSON.stringify(tokenData)); 
+//                 return Promise.resolve();
+//             }
+//             return Promise.reject();
+//         });
+// }
 };
 </script>
