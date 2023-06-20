@@ -79,6 +79,7 @@ const Submit = () => {
       console.log(resAuth);
 
       localStorage.setItem("token", resAuth.accessToken);
+      localStorage.setItem("refreshToken", resAuth.refreshToken);
 
       router.push("/");
     })

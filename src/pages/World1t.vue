@@ -34,7 +34,8 @@ export default defineComponent({
    async send() {
       const axiosPrivate = useAxiosPrivate();
       try {
-      const response = await axiosPrivate.get('api/profile')
+        const response = await axiosPrivate.get('/api/profile')
+        console.log("RESPONSE: ", response)
       } catch (error) {
         console.log(error);
       }
@@ -42,4 +43,3 @@ export default defineComponent({
   },
 });
 </script>
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QzQHRlc3QuY29tIiwic3ViIjoiOTE0YTg1ODItODVmMC00MzA1LWI4YjUtNjQ5NzY1MDFiMDRhIiwiaWF0IjoxNjg3MjU1MjE5LCJleHAiOjE2ODcyNTYxMTl9._8HZ6_RE3uTxzhZOM7WXg5HmpG_JwilW6aJ9WTZeJng

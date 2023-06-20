@@ -2,12 +2,12 @@ import axios from "axios";
 
 const useRefreshToken = () => {
   const refresh = async () => {
-    const response = await axios.get("/api/auth/refresh-token", {
-      withCredentials: true,
+    const response = await axios.post("/api/auth/refresh-token", {
+      refreshToken: localStorage.getItem("refreshToken"),
     });
 
-    console.log(JSON.stringify(response));
-    console.log(response.data.accessToken);
+    console.log("useRefreshToken");
+    console.log(response);
 
     return response.data.accessToken;
   };
