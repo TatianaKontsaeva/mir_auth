@@ -31,11 +31,11 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   methods: {
-   async send() {
+    async send() {
       const axiosPrivate = useAxiosPrivate();
       try {
-        const response = await axiosPrivate.get('/api/profile')
-        console.log("RESPONSE: ", response)
+        const response = await axiosPrivate.get("/api/profile");
+        console.log("RESPONSE: ", response);
       } catch (error) {
         console.log(error);
       }

@@ -12,6 +12,7 @@ const useAxiosPrivate = () => {
         config.headers["Authorization"] = `Bearer ${accessToken}`;
       }
       console.log("requestIntercept config: ", config);
+      axiosPrivate.interceptors.request.eject(requestIntercept);
       return config;
     },
     (error) => Promise.reject(error)
@@ -26,15 +27,16 @@ const useAxiosPrivate = () => {
         const newAccessToken = await refresh();
         prevRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
         console.log("responseIntercept newAccessToken: ", newAccessToken);
+        localStorage.setItem("token", newAccessToken);
+        axiosPrivate.interceptors.response.eject(responseIntercept);
         return axiosPrivate(prevRequest);
       }
+
       return Promise.reject(error);
     }
   );
 
-  // axiosPrivate.interceptors.request.eject(requestIntercept);
-  // axiosPrivate.interceptors.response.eject(responseIntercept);
-  console.log("onmounted returned");
+  console.log("onMounted returned");
   return axiosPrivate;
 };
 

@@ -53,9 +53,6 @@ export default defineComponent({
       const token = localStorage.getItem("token");
       return Boolean(token);
     },
-    // isHomePage() {
-    //   return this.$route.name === "world1t"
-    // }
   },
   setup() {
     const leftDrawerOpen = ref(false);

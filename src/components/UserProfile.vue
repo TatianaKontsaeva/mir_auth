@@ -1,20 +1,20 @@
 <template>
   <q-page class="q-pa-md flex-center justify-between">
     <div class="q-pa-md flex justify-between items-center">
-    <div>
-      <q-btn>
-        <router-link to="/">На Главную</router-link>
-      </q-btn>
+      <div>
+        <q-btn>
+          <router-link to="/">На Главную</router-link>
+        </q-btn>
+      </div>
+      <div class="q-pa-md">
+        <q-btn
+          label="Выход"
+          color="grey"
+          class="q-ml-sm btn_list"
+          @click="logoutClick"
+        />
+      </div>
     </div>
-    <div class="q-pa-md">
-      <q-btn
-        label="Выход"
-        color="grey"
-        class="q-ml-sm btn_list"
-        @click="logoutClick"
-      />
-    </div>
-  </div>
     <p>welcome</p>
   </q-page>
 </template>
@@ -53,27 +53,5 @@ export default {
       console.log("error");
     }
   },
-
-//  async refreshToken(token) {
-//     return axios('api/auth/refresh-token', {
-//         method: 'POST',
-//         credentials: 'include',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//             token,
-//         }),
-//     })
-//         .then((res) => {
-//             if (res.status === 200) {
-//                 const tokenData = res.json();
-//                 saveToken(JSON.stringify(tokenData)); 
-//                 return Promise.resolve();
-//             }
-//             return Promise.reject();
-//         });
-// }
 };
 </script>
