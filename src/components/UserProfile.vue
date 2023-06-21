@@ -21,13 +21,14 @@
 
 <script>
 import { useRouter } from "vue-router";
-import axios from "axios";
+import useAxiosPrivate from "src/hooks/useAxiosPrivate";
 export default {
   setup() {
     const router = useRouter();
 
     const logoutClick = () => {
       localStorage.removeItem("token");
+      localStorage.removeItem("refreshToken");
       console.log("token deleted");
       router.push("/");
     };
@@ -38,19 +39,12 @@ export default {
   },
 
   async created() {
-    const token = localStorage.getItem("token");
-
-    const headers = {
-      Authorization: `Bearer ${token}`, // Добавление токена в заголовок Authorization
-    };
-    const options = {
-      headers,
-    };
+    const axiosPrivate = useAxiosPrivate();
     try {
-      const response = await axios.get(`api/profile`, options);
-      console.log(response);
-    } catch {
-      console.log("error");
+      const response = await axiosPrivate.get("/api/profile");
+      console.log("RESPONSE: ", response);
+    } catch (error) {
+      console.log(error);
     }
   },
 };

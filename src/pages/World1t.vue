@@ -1,7 +1,6 @@
 <template>
   <q-page class="flex flex-center q-pa-md">
     <h3>О Мир 1Т</h3>
-    <q-btn @click="send">Send</q-btn>
     <p class="q-pa-md">
       Метавселенная 1Т представляет собой виртуальную среду для игры и
       разработки с разнообразными мирами, играми, внутренней экономикой,
@@ -26,20 +25,7 @@
   </q-page>
 </template>
 <script>
-import useAxiosPrivate from "src/hooks/useAxiosPrivate";
 import { defineComponent } from "vue";
 
-export default defineComponent({
-  methods: {
-    async send() {
-      const axiosPrivate = useAxiosPrivate();
-      try {
-        const response = await axiosPrivate.get("/api/profile");
-        console.log("RESPONSE: ", response);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
-});
+export default defineComponent({});
 </script>
